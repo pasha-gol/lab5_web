@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Green Corner</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; }
+  nav a { margin-right: 15px; }
+  .item { display: inline-block; width: 220px; vertical-align: top; margin: 10px; border: 1px solid #ccc; padding: 10px; }
+  .item img { width: 200px; height: 200px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="#" onclick="showCatalog(); return false;">Catalog</a>
+</nav>
+<hr>
+
+<div id="content"></div>
+
+<script>
+const content = document.getElementById("content");
+
+// Показує перелік категорій
+function showCatalog() {
+  fetch("data/categories.json")
+    .then(response => response.json())
+    .then(categories => {
+      let html = "<h1>Каталог</h1><ul>";
+      categories.forEach(cat => {
+        html += `<li><a href="#" onclick="showCategory('${cat.shortname}'); return false;">${cat.name}</a></li>`;
+      });
+      html += "</ul>";
+      html += `<a href="#" onclick="showSpecials(); return false;">Specials</a>`;
+      content.innerHTML = html;
+    });
+}
+
+// Показує товари однієї категорії
+function showCategory(shortname) {
+  fetch("data/" + shortname + ".json")
+    .then(response => response.json())
+    .then(data => {
+      let html = "<h2>" + data.name + "</h2>";
+      data.items.forEach(item => {
+        html += `
+          <div class="item">
+            <img src="https://placehold.co/200x200?text=${item.shortname}" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <p>${item.description}</p>
+            <b>${item.price}</b>
+          </div>`;
+      });
+      content.innerHTML = html;
+    });
+}
+
+// Випадкова категорія
+function showSpecials() {
+  fetch("data/categories.json")
+    .then(response => response.json())
+    .then(categories => {
+      const random = categories[Math.floor(Math.random() * categories.length)];
+      showCategory(random.shortname);
+    });
+}
+
+showCatalog();
+</script>
+</body>
+</html>
