@@ -1,0 +1,7 @@
+{"id": 3, "name": "Пряні трави", "shortname": "herbs", "items": [
+  {"id": 301, "name": "Базилік", "shortname": "basil", "description": "Ароматний, для салатів і пасти. Lorem ipsum.", "price": "70 ₴"},
+  {"id": 302, "name": "М’ята", "shortname": "mint", "description": "Для чаю та коктейлів. Lorem ipsum dolor sit amet.", "price": "60 ₴"},
+  {"id": 303, "name": "Розмарин", "shortname": "rosemary", "description": "Вічнозелений кущик для м’яса й випічки. Lorem ipsum.", "price": "95 ₴"},
+  {"id": 304, "name": "Тимʼян", "shortname": "thyme", "description": "Низькорослий, стійкий до посухи. Lorem ipsum.", "price": "80 ₴"},
+  {"id": 305, "name": "Петрушка", "shortname": "parsley", "description": "Свіжа зелень цілий рік. Lorem ipsum dolor.", "price": "55 ₴"}
+]}

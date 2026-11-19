@@ -1,0 +1,7 @@
+{"id": 1, "name": "Кімнатні рослини", "shortname": "houseplants", "items": [
+  {"id": 101, "name": "Монстера Деліціоза", "shortname": "monstera", "description": "Лист з розрізами, росте швидко. Lorem ipsum dolor sit amet.", "price": "650 ₴"},
+  {"id": 102, "name": "Фікус Бенджаміна", "shortname": "ficus", "description": "Класична деревоподібна рослина для вітальні. Lorem ipsum.", "price": "480 ₴"},
+  {"id": 103, "name": "Спатифілум", "shortname": "spathiphyllum", "description": "Цвіте білим, очищує повітря. Lorem ipsum dolor sit.", "price": "320 ₴"},
+  {"id": 104, "name": "Замиокулькас", "shortname": "zamioculcas", "description": "Невибаглива, витримує рідкісний полив. Lorem ipsum.", "price": "540 ₴"},
+  {"id": 105, "name": "Сансев’єрія", "shortname": "sansevieria", "description": "Жорсткі вертикальні листки, підходить для початківців.", "price": "290 ₴"}
+]}

@@ -1,0 +1,8 @@
+{"id": 2, "name": "Сукуленти та кактуси", "shortname": "succulents", "items": [
+  {"id": 201, "name": "Алое Вера", "shortname": "aloe", "description": "Лікарська рослина з соковитим листям. Lorem ipsum.", "price": "180 ₴"},
+  {"id": 202, "name": "Ехеверія", "shortname": "echeveria", "description": "Розетка листя, схожа на квітку. Lorem ipsum dolor.", "price": "150 ₴"},
+  {"id": 203, "name": "Опунція", "shortname": "opuntia", "description": "Плоскі членики з колючками. Lorem ipsum dolor sit.", "price": "210 ₴"},
+  {"id": 204, "name": "Хавортія", "shortname": "haworthia", "description": "Компактна, любить розсіяне світло. Lorem ipsum.", "price": "130 ₴"},
+  {"id": 205, "name": "Мамілларія", "shortname": "mammillaria", "description": "Невеликий кулястий кактус. Lorem ipsum dolor.", "price": "120 ₴"},
+  {"id": 206, "name": "Літопс", "shortname": "lithops", "description": "Живе каміння, цікавий колекційний варіант.", "price": "170 ₴"}
+]}
