@@ -23,25 +23,38 @@
 <script>
 const content = document.getElementById("content");
 
+// Завантажує JSON; при помилці показує її на сторінці
+function loadJSON(url) {
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error("Не знайдено файл " + url + " (код " + response.status + ")");
+    return response.json();
+  });
+}
+
+function showError(err) {
+  content.innerHTML = "<p style='color:red'>Помилка: " + err.message + "</p>";
+}
+
 // Показує перелік категорій
-function showCatalog() {
-  fetch("data/categories.json")
-    .then(response => response.json())
+function showCatalog(isHome) {
+  loadJSON("data/categories.json")
     .then(categories => {
-      let html = "<h1>Каталог</h1><ul>";
+      let html = isHome
+        ? "<h1>Ласкаво просимо до Green Corner</h1><p>Оберіть категорію:</p><ul>"
+        : "<h1>Каталог</h1><ul>";
       categories.forEach(cat => {
         html += `<li><a href="#" onclick="showCategory('${cat.shortname}'); return false;">${cat.name}</a></li>`;
       });
       html += "</ul>";
       html += `<a href="#" onclick="showSpecials(); return false;">Specials</a>`;
       content.innerHTML = html;
-    });
+    })
+    .catch(showError);
 }
 
 // Показує товари однієї категорії
 function showCategory(shortname) {
-  fetch("data/" + shortname + ".json")
-    .then(response => response.json())
+  loadJSON("data/" + shortname + ".json")
     .then(data => {
       let html = "<h2>" + data.name + "</h2>";
       data.items.forEach(item => {
@@ -54,20 +67,21 @@ function showCategory(shortname) {
           </div>`;
       });
       content.innerHTML = html;
-    });
+    })
+    .catch(showError);
 }
 
 // Випадкова категорія
 function showSpecials() {
-  fetch("data/categories.json")
-    .then(response => response.json())
+  loadJSON("data/categories.json")
     .then(categories => {
       const random = categories[Math.floor(Math.random() * categories.length)];
       showCategory(random.shortname);
-    });
+    })
+    .catch(showError);
 }
 
-showCatalog();
+showCatalog(true);
 </script>
 </body>
 </html>
